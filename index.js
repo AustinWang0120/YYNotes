@@ -72,7 +72,7 @@ app.post("/api/notes", (req, res, next) => {
         .catch((error) => next(error))
 })
 
-app.delete("/api/notes/:id", (req, res) => {
+app.delete("/api/notes/:id", (req, res, next) => {
     Note.findByIdAndRemove(req.params.id)
         .then((result) => {
             res.status(204).end()
